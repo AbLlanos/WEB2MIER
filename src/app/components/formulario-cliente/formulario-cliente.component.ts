@@ -2,11 +2,12 @@ import { Component } from '@angular/core';
 import { NavBarComponent } from "../nav-bar/nav-bar.component";
 import { ClientService } from '../../servicio/client.service';
 import { FormsModule } from '@angular/forms';
+import { ListaClientesComponent } from "../lista-clientes/lista-clientes.component";
 
 @Component({
   selector: 'app-formulario-cliente',
   standalone: true,
-  imports: [NavBarComponent,FormsModule],
+  imports: [NavBarComponent, FormsModule, ListaClientesComponent],
   templateUrl: './formulario-cliente.component.html',
   styleUrl: './formulario-cliente.component.css'
 })

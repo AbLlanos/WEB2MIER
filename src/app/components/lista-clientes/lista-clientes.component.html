@@ -20,6 +20,12 @@
                 <th scope="col" class="px-6 py-3">
                     CORREO
                 </th>
+                <th scope="col" class="px-6 py-3">
+                    ELIMINAR
+                </th>
+                <th scope="col" class="px-6 py-3">
+                    EDITAR
+                </th>
 
             </tr>
         </thead>
@@ -40,6 +46,14 @@
                 </th>
                 <th class="px-6 py-4">
                     <p>{{cliente.direccion}}</p>
+                </th>
+
+                <th>
+                    <button (click)="eliminar(cliente.id)">Eliminar</button>
+                </th>
+
+                <th>
+                    <button [routerLink]="['/clientes', cliente.id]">Editar</button>
                 </th>
 
             </tr>

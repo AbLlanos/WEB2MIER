@@ -15,19 +15,43 @@ export class ClientService {
   guardarCliente(cliente: any): Observable<any> {
     return this.http.post(`${this.API_CLIENTES}/clientes.json`, cliente);
   }
-
-  getCliente(): Observable<Cliente[]> {
-    return this.http.get<{ [key: string]: Cliente }>(`${this.API_CLIENTES}/clientes.json`)
-      .pipe(
-        map(response => {
-          if (!response) return [];
-          return Object.values(response);
-        })
-      );
+  /*
+    getCliente(): Observable<Cliente[]> {
+      return this.http.get<{ [key: string]: Cliente }>(`${this.API_CLIENTES}/clientes.json`)
+        .pipe(
+          map(response => {
+            if (!response) return [];
+            return Object.values(response);
+          })
+        );
+    }
+  */
+  leerClientes(): Observable<any> {
+    return this.http.get(`${this.API_CLIENTES}/clientes.json`)
   }
 
-  leerClientes():Observable<any>{
-        return this.http.get<{ [key: string]: Cliente }>(`${this.API_CLIENTES}/clientes.json`)
+
+  buscarClientebyId(id: string): Observable<any> {
+
+    return this.http.get(`${this.API_CLIENTES}/clientes/${id}.json`)
+
   }
+
+
+  eliminarCliente(id: string): Observable<any> {
+
+    return this.http.delete(`${this.API_CLIENTES}/clientes/${id}.json`)
+
+  }
+
+  editarCliente(id: string, cliente:any): Observable<any> {
+
+    return this.http.put(`${this.API_CLIENTES}/clientes/${id}.json`,cliente)
+  }
+
+
+
+
+
 
 }
